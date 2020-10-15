@@ -32,7 +32,8 @@ export const musicContainerReducer = (state = initialState, action) =>
                 draft.resultsData = action.data;
                 break;
             case musicContainerTypes.FAILURE_GET_RESULTS:
-                draft.resultsError = get(action.error, 'message', 'something_went_wrong');
+                console.log("hi")
+                draft.resultsError = get(action.resultsError, 'message', 'something_went_wrong');
                 break;
         }
     });

@@ -20,7 +20,6 @@ import GlobalStyle from '@app/global-styles';
 import { colors } from '@themes';
 import Header from '@components/Header';
 import For from '@components/For';
-import MusicContainer from '@containers/MusicContainer/Loadable'
 
 const theme = {
   fg: colors.primary,
@@ -32,7 +31,6 @@ export function App({ location }) {
     <ThemeProvider theme={theme}>
       <Header />
       <Layout.Content>
-        {/* <MusicContainer /> */}
         <For
           ParentComponent={props => <Switch {...props} />}
           of={map(Object.keys(routeConfig))}

@@ -62,22 +62,25 @@ export function MusicContainer({
     maxwidth,
     padding
 }) {
+    useInjectSaga({ key: 'musicContainer', saga });
+
     const [loading, setLoading] = useState(false);
 
-    useInjectSaga({ key: 'musicContainer', saga });
 
 
     useEffect(() => {
         const loaded = get(resultsData, 'results', null) || resultsError;
+
+
         if (loading && loaded) {
             setLoading(false);
         }
     }, [resultsData])
 
     useEffect(() => {
-        if (query && !resultsData) {
-            dispatchResults(query);
+        if (query && !resultsData?.results?.length) {
             setLoading(true)
+            dispatchResults(query);
         }
     }, []);
     const handleOnChange = rName => {
@@ -89,6 +92,8 @@ export function MusicContainer({
             dispatchClearResults();
         }
     };
+    const debouncedHandleOnChange = debounce(handleOnChange, 200);
+
     const refreshPage = () => {
         history.push('stories');
         window.location.reload();
@@ -132,10 +137,12 @@ export function MusicContainer({
     const renderErrorState = () => {
         let resultError;
         if (resultsError) {
+
             resultError = resultsError;
         } else if (!get(resultsData, 'resultCount', 0)) {
             resultError = 'result_search_default';
         }
+
         return (
             !loading &&
             resultError && (
@@ -145,9 +152,6 @@ export function MusicContainer({
             )
         );
     };
-
-    const debouncedHandleOnChange = debounce(handleOnChange, 200);
-
     return (
         <ResultContainer maxwidth={maxwidth} padding={padding}>
 
@@ -159,13 +163,33 @@ export function MusicContainer({
                 onChange={evt => debouncedHandleOnChange(evt.target.value)}
                 onSearch={searchText => debouncedHandleOnChange(searchText)}
             />
+            {renderErrorState()}
 
             {renderResultList()}
-            {renderErrorState()}
         </ResultContainer>
 
     )
 }
+MusicContainer.propTypes = {
+    dispatchResults: PropTypes.func,
+    dispatchClearResults: PropTypes.func,
+    intl: PropTypes.object,
+    resultsData: PropTypes.shape({
+        results: PropTypes.array,
+        resultCount: PropTypes.number
+    }),
+    resultsError: PropTypes.object,
+    query: PropTypes.string,
+    history: PropTypes.object,
+    maxwidth: PropTypes.number,
+    padding: PropTypes.number
+};
+
+MusicContainer.defaultProps = {
+    maxwidth: 500,
+    padding: 20
+};
+
 
 const mapStateToProps = createStructuredSelector({
     musicContainer: selectMusicContainer(),
