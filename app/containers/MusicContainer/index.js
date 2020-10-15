@@ -114,7 +114,7 @@ export function MusicContainer({
 
                         <Row>
                             {items.map((result, index) => (
-                                <Col key={index} span={6}>
+                                <Col key={index} xs={24} xl={6}>
                                     {/* <CustomCard key={index}>
                                     <T id="track_name" values={{ name: result.trackName }} />
 
@@ -178,7 +178,6 @@ MusicContainer.propTypes = {
         results: PropTypes.array,
         resultCount: PropTypes.number
     }),
-    resultsError: PropTypes.object,
     query: PropTypes.string,
     history: PropTypes.object,
     maxwidth: PropTypes.number,
