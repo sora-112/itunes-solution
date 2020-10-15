@@ -46,7 +46,7 @@ An enterprise react template application showcasing - Testing strategies, Global
 
   - [app/utils/apiUtils.js](app/utils/apiUtils.js)
   - [app/services/repoApi.js](app/services/repoApi.js)
-  - [app/containers/HomeContainer/saga.js](app/containers/HomeContainer/saga.js)
+  - [app/containers/MusicContainer/saga.js](app/containers/MusicContainer/saga.js)
 
 ## Side Effects
 
@@ -56,8 +56,8 @@ An enterprise react template application showcasing - Testing strategies, Global
 
   - [app/utils/injectSaga.js](app/utils/injectSaga.js)
   - [app/utils/sagaInjectors.js](app/utils/sagaInjectors.js)
-  - [app/containers/HomeContainer/saga.js](app/containers/HomeContainer/saga.js)
-  - [app/containers/HomeContainer/index.js](app/containers/HomeContainer/index.js)
+  - [app/containers/MusicContainer/saga.js](app/containers/MusicContainer/saga.js)
+  - [app/containers/MusicContainer/index.js](app/containers/MusicContainer/index.js)
 
 ## Global state management
 
@@ -65,14 +65,14 @@ An enterprise react template application showcasing - Testing strategies, Global
 
   Take a look at the following files
 
-  - [app/containers/HomeContainer/reducer.js](app/containers/HomeContainer/reducer.js)
-  - [app/containers/HomeContainer/index.js](app/containers/HomeContainer/index.js)
+  - [app/containers/MusicContainer/reducer.js](app/containers/MusicContainer/reducer.js)
+  - [app/containers/MusicContainer/index.js](app/containers/MusicContainer/index.js)
 
 - Computing and getting state from the redux store using [Reselect](https://github.com/reduxjs/reselect)
 
   Take a look at the following files
 
-  - [app/containers/HomeContainer/selector.js](app/containers/HomeContainer/selector.js)
+  - [app/containers/MusicContainer/selector.js](app/containers/MusicContainer/selector.js)
 
 ## Design and Style
 
@@ -81,13 +81,13 @@ An enterprise react template application showcasing - Testing strategies, Global
   Take a look at the following files
 
   - [app/components/T/index.js](app/components/T/index.js)
-  - [app/containers/HomeContainer/index.js](app/containers/HomeContainer/index.js)
+  - [app/containers/MusicContainer/index.js](app/containers/MusicContainer/index.js)
 
 - Reusing components from [Ant design](https://ant.design)
 
   Take a look at the following files
 
-  - [app/containers/HomeContainer/index.js](app/containers/HomeContainer/index.js)
+  - [app/containers/MusicContainer/index.js](app/containers/MusicContainer/index.js)
 
 ## Translations
 
@@ -124,7 +124,7 @@ Take a look at the following files
 
 Take a look at the following files
 
-- [app/containers/HomeContainer/Loadable.js](app/containers/HomeContainer/Loadable.js)
+- [app/containers/MusicContainer/Loadable.js](app/containers/MusicContainer/Loadable.js)
 - [app/utils/loadable.js](app/utils/loadable.js)
 
 ## App entry point
